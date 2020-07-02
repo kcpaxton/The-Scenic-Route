@@ -4,6 +4,7 @@ import MapView from "react-native-maps";
 import React from "react";
 import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
 import Places from "./components/places";
+import BottomNav from "./components/BottomNav";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -45,12 +46,12 @@ export default class App extends React.Component {
             initialRegion={{
               latitude,
               longitude,
-              latitudeDelta: 0.0922,
+              // latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
             }}
           ></MapView> */}
 
-          <Button title="Log" onPress={this.printLog} />
+          <BottomNav></BottomNav>
         </SafeAreaView>
       );
     }

@@ -1,13 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-
+import config from "../config";
 function Places(props) {
   const [places, setPlaces] = useState([]);
 
   fetchPlaces = () => {
     let radius = 2 * 1000; // Search withing 2 KM radius
-    const YOUR_API_KEY = "AIzaSyB07f3SPEz7mvkXydK1nu2JUSV4sxb1qgw";
+    const api_key = config.API_KEY;
     const url =
       "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" +
       props.latitude +
@@ -16,7 +16,7 @@ function Places(props) {
       "&radius=" +
       radius +
       "&key=" +
-      YOUR_API_KEY;
+      api_key;
 
     fetch(url)
       .then((res) => {
