@@ -1,10 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import * as Permissions from "expo-permissions";
-import MapView from "react-native-maps";
+// import MapView from "react-native-maps";
 import React from "react";
-import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, Button, SafeAreaView, ScrollView } from "react-native";
 import Places from "./components/places";
-import BottomNav from "./components/BottomNav";
+// import BottomNav from "./components/BottomNav";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -38,20 +38,23 @@ export default class App extends React.Component {
     if (latitude) {
       return (
         <SafeAreaView style={styles.container}>
-          <Places latitude={latitude} longitude={longitude}></Places>
+          <ScrollView>
+            <Places latitude={latitude} longitude={longitude}></Places>
 
-          {/*<MapView
-            showsUserLocation
-            style={{ height: "50%" }}
-            initialRegion={{
-              latitude,
-              longitude,
-              // latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-          ></MapView> */}
+            {/* <MapView
+              showsUserLocation
+              style={{ height: "50%" }}
+              initialRegion={{
+                latitude,
+                longitude,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+              }}
+            ></MapView> */}
 
-          <BottomNav></BottomNav>
+            {/* <BottomNav></BottomNav> */}
+
+          </ScrollView>
         </SafeAreaView>
       );
     }
@@ -65,9 +68,9 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
+    display: "flex",
+    alignItems: "stretch",
     justifyContent: "center",
+    backgroundColor: "#d7d9db"
   },
 });
